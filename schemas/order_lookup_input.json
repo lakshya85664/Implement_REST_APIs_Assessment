@@ -1,0 +1,17 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "order_id": {
+      "maxLength": 30,
+      "minLength": 4,
+      "pattern": "^ORD-[0-9]{4}$",
+      "title": "Order Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "order_id"
+  ],
+  "title": "OrderLookupInput",
+  "type": "object"
+}

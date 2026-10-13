@@ -1,0 +1,27 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "order_id": {
+      "maxLength": 30,
+      "minLength": 4,
+      "pattern": "^ORD-[0-9]{4}$",
+      "title": "Order Id",
+      "type": "string"
+    },
+    "new_status": {
+      "enum": [
+        "processing",
+        "shipped",
+        "cancelled"
+      ],
+      "title": "New Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "order_id",
+    "new_status"
+  ],
+  "title": "OrderUpdateInput",
+  "type": "object"
+}

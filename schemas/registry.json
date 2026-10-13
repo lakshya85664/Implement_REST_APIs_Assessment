@@ -1,0 +1,125 @@
+[
+  {
+    "name": "order_lookup",
+    "version": "1.0",
+    "access_mode": "read",
+    "roles": [
+      "admin",
+      "operator",
+      "viewer"
+    ],
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "order_id": {
+          "maxLength": 30,
+          "minLength": 4,
+          "pattern": "^ORD-[0-9]{4}$",
+          "title": "Order Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "order_id"
+      ],
+      "title": "OrderLookupInput",
+      "type": "object"
+    },
+    "output_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "order_id": {
+          "title": "Order Id",
+          "type": "string"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        },
+        "amount": {
+          "minimum": 0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "order_id",
+        "status",
+        "amount"
+      ],
+      "title": "OrderLookupOutput",
+      "type": "object"
+    }
+  },
+  {
+    "name": "order_update",
+    "version": "1.0",
+    "access_mode": "write",
+    "roles": [
+      "admin",
+      "operator"
+    ],
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "order_id": {
+          "maxLength": 30,
+          "minLength": 4,
+          "pattern": "^ORD-[0-9]{4}$",
+          "title": "Order Id",
+          "type": "string"
+        },
+        "new_status": {
+          "enum": [
+            "processing",
+            "shipped",
+            "cancelled"
+          ],
+          "title": "New Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "order_id",
+        "new_status"
+      ],
+      "title": "OrderUpdateInput",
+      "type": "object"
+    },
+    "output_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "order_id": {
+          "title": "Order Id",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "processing",
+            "shipped",
+            "cancelled"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "amount": {
+          "minimum": 0,
+          "title": "Amount",
+          "type": "number"
+        },
+        "updated": {
+          "title": "Updated",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "order_id",
+        "status",
+        "amount",
+        "updated"
+      ],
+      "title": "OrderUpdateOutput",
+      "type": "object"
+    }
+  }
+]

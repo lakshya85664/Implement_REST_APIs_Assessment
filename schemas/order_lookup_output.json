@@ -1,0 +1,25 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "order_id": {
+      "title": "Order Id",
+      "type": "string"
+    },
+    "status": {
+      "title": "Status",
+      "type": "string"
+    },
+    "amount": {
+      "minimum": 0,
+      "title": "Amount",
+      "type": "number"
+    }
+  },
+  "required": [
+    "order_id",
+    "status",
+    "amount"
+  ],
+  "title": "OrderLookupOutput",
+  "type": "object"
+}
